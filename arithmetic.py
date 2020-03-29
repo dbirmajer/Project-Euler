@@ -57,6 +57,20 @@ def binomial(n, k):
         return 1
     return permutations(n, k) // factorial(k)
 
+## Combinatorics
+
+def alpha(n: int, p :int) -> int:
+    """
+    Returns the largest nonnegative power of prime p that divides n.
+    For example alpha(100, 2) = 2, aplha(100, 3) = 0, alpha(125, 5) = 3.  
+    """
+    assert (n > 1 and p > 1), "Not a valid input"
+    count = 0
+    while (n % p == 0):
+        count += 1
+        n /= p
+    return count
+
 def q(n: int) -> int:
     """
     Returns the smallest divisor of n bigger than 1.
@@ -71,6 +85,19 @@ def q(n: int) -> int:
             d = i
             break
     return d
+
+def prime_factorization(n: int) -> List[int]:
+    """
+    Returns the prime factorization of n.
+    For example prime_factorization(100) = [(2, 2), (5, 2)]
+    """
+    ls = []
+    while (n > 1):
+        p = q(n)
+        a = alpha(n, p)
+        ls.append((p, a))
+        n = n // p**a
+    return ls
 
 def divisors(n: int) -> List[int]:
     """Returns the list of divisors of a positive integer.
