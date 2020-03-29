@@ -57,7 +57,7 @@ def binomial(n, k):
         return 1
     return permutations(n, k) // factorial(k)
 
-def q(n):
+def q(n: int) -> int:
     """
     Returns the smallest divisor of n bigger than 1.
     For example q(100) = 2, q(15) = 3, q(125) = 5.  
@@ -72,7 +72,7 @@ def q(n):
             break
     return d
 
-def divisors(n):
+def divisors(n: int) -> List[int]:
     """Returns the list of divisors of a positive integer.
      Example: >>>divisors(10): [1, 2, 5, 10]"""
     ls = []
@@ -89,7 +89,7 @@ def isPrime(n):
     if n == 0:
         return False
     if n == 1:      return False
-    if n in [2, 3]: return True
+    if n in [2, 3, 5]: return True
     return n == q(n)
 
 #Sequences
