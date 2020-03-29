@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import time
 import math
 import functools
@@ -60,11 +62,15 @@ def q(n):
     Returns the smallest divisor of n bigger than 1.
     For example q(100) = 2, q(15) = 3, q(125) = 5.  
     """
-    assert (n > 1), "Not a valid input {} must be > 1".format(n)
+    assert (n > 1), "Not a valid input n = {} must be > 1".format(n)
+    ub = math.ceil(math.sqrt(n))
     if n % 2 == 0: return 2
-    for i in range(3, n + 1, 2):
-        if n % i == 0: return i
-
+    d = n    
+    for i in range(3, ub + 1, 2):
+        if n % i == 0:
+            d = i
+            break
+    return d
 
 def divisors(n):
     """Returns the list of divisors of a positive integer.
@@ -77,7 +83,6 @@ def divisors(n):
         ls.append(d)
     return ls + rs[::-1]
 
-
 def isPrime(n):
     """Return True if n is prime, False otherwise"""
     n = abs(n)
@@ -85,12 +90,8 @@ def isPrime(n):
         return False
     if n == 1:      return False
     if n in [2, 3]: return True
-    d = math.floor(math.sqrt(n))
-    for i in range(2, d):
-        if n % i == 0:
-            return False
-    return n % d > 0
-                       
+    return n == q(n)
+
 #Sequences
 def fibonacci(n):
     a = 0
