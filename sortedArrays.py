@@ -36,9 +36,6 @@ def elem(e: int, sarr: List) -> bool:
         else:
             a = pos + 1
         q = b - a
-    return False
-    return (sarr[a] == e or sarr[b] == e)
+    return (b >= 0 and (sarr[a] == e or sarr[b] == e))
             
-
-
 

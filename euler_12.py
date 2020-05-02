@@ -8,7 +8,6 @@ def euler_12():
         n += 1
     return triangular(n)
 
-
 def main():
     print(timing_function(euler_12))
 

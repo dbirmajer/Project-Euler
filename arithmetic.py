@@ -6,23 +6,12 @@ import functools
 import operator
 from typing import List
 
-def timing_function(some_function, arg = 1000):
 
+def sumOfPowerDigits(n: int, p: "The power is 1 by default"   = 1) -> int:
     """
-    Outputs the time a function takes
-    to execute.
+    Returns the sum of the p-powers of the digits of n
+    The power is 1 by default
     """
-
-    def wrapper():
-        t1 = time.time()
-        print(some_function(arg))
-        t2 = time.time()
-        return "Time it took to run the function: " + str((t2 - t1)) + " seconds"
-    return wrapper()
-
-
-def sumOfPowerDigits(n, p: "The power is 1 by default" = 1):
-    """Returns the sum of the p-powers of the digits of n"""  
     if n < 0:   return None ## Check n >= 0
     accum = 0 
     while n >= 10:

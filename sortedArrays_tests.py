@@ -31,10 +31,5 @@ class Test_elem(unittest.TestCase):
         self.assertFalse(elem(-1, ls))
         
 
-        
-        
-        
-        
-
 # Run the tests
 unittest.main()    
